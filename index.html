@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión a Binario y Hexadecimal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Conversión a Binario y Hexadecimal</h1>
+        <form method="post">
+            <label for="numero">Ingresa un número entero o real:</label>
+            <input type="text" id="numero" name="numero" required>
+            <br>
+            <label for="opcion">Elige el tipo de conversión:</label>
+            <select id="opcion" name="opcion" required>
+                <option value="binario">Binario</option>
+                <option value="hexadecimal">Hexadecimal</option>
+            </select>
+            <br>
+            <button type="submit">Convertir</button>
+        </form>
+        
+        {% if resultado_binario and resultado_hexadecimal %}
+            <h2>Resultados:</h2>
+            <p><strong>Binario:</strong> {{ resultado_binario }}</p>
+            <p><strong>Hexadecimal:</strong> {{ resultado_hexadecimal }}</p>
+        {% endif %}
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
